@@ -9,5 +9,9 @@ software development.
 - Embedded memory types and segments
 - Linux-based development environment
 
-This repository will be updated progressively as I complete coursework
-and implement practical examples.
+## Status
+In progress — updated alongside coursework with practical examples.
+
+
+***This repository will be updated progressively as I complete coursework
+and implement practical examples.***
