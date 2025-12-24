@@ -1,142 +1,91 @@
 # Software Layers in Embedded Systems
 
-## What are Software Layers?
-
-Software layers divide an embedded system into logical levels, where each layer has a specific responsibility and interacts only with adjacent layers.
-
-This layered approach helps manage system complexity and separates hardware-specific details from application logic.
+## Software Layers
+- Logical separation of embedded software
+- Each layer has specific responsibility
+- Interacts only with adjacent layers
 
 ---
 
-## Why Software Layers are Needed
-
-Embedded systems interact directly with hardware, which can be complex and platform-specific. Software layers help to:
-
-- Isolate hardware-dependent code
-- Improve code reusability
-- Simplify debugging and testing
-- Enable portability across different hardware platforms
-- Improve maintainability and scalability
+## Purpose
+- Hardware isolation
+- Code reuse
+- Portability
+- Maintainability
 
 ---
 
 ## Typical Embedded Software Stack
 
-***Application Layer
-│
-Middleware / Libraries
-│
-Operating System 
-│
-Drivers / HAL
-│
-Hardware***
-
-
-
-## Description 
-
-### 1. Application Layer
-- Contains high-level system logic
-- Defines the overall behavior of the embedded system
-- Hardware-independent
-
-Examples:
-- Sensor data processing
-- Control algorithms
-- Communication logic
 
 ---
 
-### 2. Middleware / Libraries
-- Provides reusable software components
-- Acts as a bridge between application and lower layers
-
-Examples:
-- Communication stacks (UART, TCP/IP, Bluetooth)
-- File systems
-- Protocol libraries
-
-Purpose:
-- Avoids rewriting common functionality
-- Speeds up development
+## Layer Summary
+- **Application** → System logic
+- **Middleware** → Reusable services
+- **OS (optional)** → Scheduling, memory
+- **Drivers / HAL** → Hardware interface
+- **Hardware** → Physical components
 
 ---
 
-### 3. Operating System (OS) *(Optional)*
-- Manages system resources
-- Abstracts low-level hardware details
-
-Key responsibilities:
-- Task scheduling
-- Memory management
-- Inter-task communication
-
-Note:
-- Many embedded systems operate without an OS (bare-metal systems)
+## HAL (Quick)
+- Abstracts hardware
+- Portable interface
+- No direct register access by application
 
 ---
 
-### 4. Drivers / Hardware Abstraction Layer (HAL)
-- Acts as an interface between software and hardware
-- Controls peripherals such as:
-  - GPIO
-  - SPI
-  - UART
-  - Timers
-
-HAL hides hardware register details from upper layers.
+## Bootloader (Intro)
+- Runs before application
+- Initializes system
+- Loads firmware
 
 ---
 
-### 5. Hardware Layer
-- Consists of physical components such as:
-  - Microcontroller
-  - Sensors
-  - Actuators
-  - Communication peripherals
+# Software Components in Embedded Systems
 
-All software interactions with hardware occur through drivers or HAL.
+## Software Components
+- Modular functional units
+- Interface-based communication
 
 ---
 
-## Hardware Abstraction Layer (HAL)
-
-The Hardware Abstraction Layer provides a portable interface to hardware peripherals.
-
-Instead of accessing hardware registers directly, applications use HAL functions to perform operations.
-
-This allows the same application code to run on different hardware platforms with minimal changes.
+## Types
+- Control Libraries
+- Peripheral Libraries (SPI, UART, GPIO)
+- Firmware Components
+- Hardware Drivers
 
 ---
 
-## Benefits of Layered Architecture
+## Component Architecture
 
-- Improved code organization
-- Easier debugging and testing
-- Hardware independence
-- Better scalability for complex systems
-- Industry-standard design practice
+<img width="1761" height="849" alt="image" src="https://github.com/user-attachments/assets/f1cd61bf-da26-49d9-ac8c-a79c41d78a1a" />
+
 
 ---
 
-## Bootloader (Introduction)
-
-- The bootloader runs before the main application
-- Responsible for:
-  - Initial hardware initialization
-  - Loading application firmware
-  - Supporting firmware updates
-
-The bootloader is separate from the main application code.
+## Diagram Keywords
+- Library-based design
+- Interface stability
+- Hardware abstraction
+- Replaceable components
 
 ---
 
-## Key Takeaways
+## Reusability & Versioning
+- New component → same interface
+- Old component → legacy
+- Lower layers unchanged
 
-- Software layers structure embedded systems logically
-- Each layer has a clear and limited responsibility
-- HAL plays a critical role in hardware portability
-- Not all embedded systems require an operating system
-- Layered architecture improves maintainability and reliability
+---
+
+## Hardware Mapping
+- GPIO → RGB LED
+- SPI → nRF24L01+
+- UART → Off-board device
+
+---
+
 
